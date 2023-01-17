@@ -28,8 +28,8 @@ export default{
             if(this.blockNumber === ""){
                 alert("Please enter a block number")
             }else{
-                this.$router.push(`/block/`)
                 this.$router.push(`/block/${this.blockNumber}`)
+                this.blockNumber = ""
             }
         },
         goToTx(){
@@ -37,6 +37,7 @@ export default{
                 alert("Please enter a transaction hash")
             }else{
                 this.$router.push(`/transaction/${this.txHash}`)
+                this.txHash = ""
             }
         }
     }
