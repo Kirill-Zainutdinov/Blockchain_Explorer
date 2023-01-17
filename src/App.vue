@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <navbar></navbar>
     <router-view></router-view>
   </div>
@@ -12,5 +12,7 @@ export default{
 </script>
 
 <style>
-
+.app{
+  padding: 20px;
+}
 </style>

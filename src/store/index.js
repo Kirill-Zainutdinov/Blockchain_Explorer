@@ -16,7 +16,6 @@ export default createStore({
     },
     actions:{
         async newBlockHeaders({commit}){
-            console.log("qq")
             let subscribe = web3.eth.subscribe('newBlockHeaders')
             .on('data', block => {
                 console.log(block)
