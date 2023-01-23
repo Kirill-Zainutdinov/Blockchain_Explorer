@@ -6,10 +6,8 @@ export const getBlockNumber = async () => {
 }
 
 export const newBlockHeaders = async () => {
-    console.log("AA")
     let subscribe = web3.eth.subscribe('newBlockHeaders')
     .on('data', block => {
-        console.log("QQ")
         return block
     })
 }
