@@ -52,7 +52,7 @@ export default{
 <style>
 .block_info{
     padding: 15px;
-    border: 2px solid teal;
+    border: 2px solid darkblue;
     margin-top: 15px;
 }
 .block_val{

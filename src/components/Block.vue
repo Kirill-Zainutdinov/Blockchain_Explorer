@@ -34,7 +34,7 @@ export default{
 
 .block{
     padding: 15px;
-    border: 2px solid teal;
+    border: 2px solid darkblue;
     margin-top: 15px;
     display: flex;
     align-items: center;
@@ -46,8 +46,8 @@ export default{
     align-self: flex-end;
     padding: 10px 15px;
     background: none;
-    color: teal;
-    border: 2px solid teal;
+    color: darkblue;
+    border: 2px solid darkblue;
     margin-left: auto;
 }
 </style>

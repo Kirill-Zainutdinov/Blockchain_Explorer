@@ -1,5 +1,5 @@
 import {createStore} from 'vuex'
-const Web3 = require('web3');
+const Web3 = require('web3')
 const web3 = new Web3('wss://eth-goerli.g.alchemy.com/v2/R9QqWMg1ORMnOE9RwIaMwwfNVrgBNN4J')
 
 

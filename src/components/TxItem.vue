@@ -37,7 +37,7 @@ export default{
     },
     methods:{
         async getTransaction(){
-            this.tx = await getTransaction(this.txHash);
+            this.tx = await getTransaction(this.txHash)
             console.log(this.tx)
         }
     }
@@ -48,7 +48,7 @@ export default{
 <style>
 .tx{
     padding: 15px;
-    border: 2px solid teal;
+    border: 2px solid darkblue;
     margin-top: 15px;
 }
 .tx_item{

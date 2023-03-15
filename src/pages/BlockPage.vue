@@ -7,13 +7,7 @@
 <script>
 
 export default{
-    name: "block",
-    props:{
-        blockNumber:{
-            type: [Number , String],
-            required: true
-        }
-    }
+    name: "block"
 }
 </script>
 

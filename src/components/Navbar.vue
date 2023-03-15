@@ -64,8 +64,8 @@ input{
     align-self: flex-end;
     padding: 10px 15px;
     background: none;
-    color: teal;
-    border: 2px solid teal;
+    color: darkblue;
+    border: 2px solid darkblue;
     margin-left: auto;
 }
 </style>
