@@ -6,23 +6,19 @@
 </template>
 
 <script>
-import {  mapActions } from "vuex"
+import { mapActions } from 'vuex';
 export default{
-    data(){
-        return{
-            blockNumbers: [],
-        }
+    methods:{
+        ...mapActions({
+            newBlockHeaders: "newBlockHeaders"
+        })
     },
     mounted(){
         this.newBlockHeaders()
-    },
-    methods:{
-        ...mapActions({
-            newBlockHeaders: 'newBlockHeaders'
-        })
     }
 }
 </script>
+
 
 <style>
 

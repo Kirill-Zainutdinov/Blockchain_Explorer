@@ -1,16 +1,13 @@
 <template>
     <div class="block">
-        <div style="display:inline-block;">
-            <div><strong>Номер блока:</strong> {{block.number}}</div>
-            <div><strong>Хеш блока:</strong> {{block.hash}}</div>
+        <div style="display:inline-block">
+            <div>Номер блока: {{ block.number }}</div>
+            <div>Хеш блока: {{ block.hash }}</div>
         </div>
-        <div class="btns">
-            <button class="btn" @click="$router.push(`/block/${block.number}`)">Открыть</button>
-        </div>
+        <button class="btn" @click="$router.push(`/block/${block.number}`)">Открыть страницу блока</button>
     </div>
-    
-    
 </template>
+
 
 <script>
 
@@ -23,7 +20,9 @@ export default{
         }
     }
 }
+
 </script>
+
 
 <style>
 *{
@@ -40,7 +39,6 @@ export default{
     align-items: center;
     justify-content: space-between;
 }
-
 
 .btn{
     align-self: flex-end;

@@ -1,53 +1,54 @@
 <template>
     <div class="block_info">
-        <div class="block_val"><strong>Номер блока:</strong> {{block.number}}</div>
-        <div class="block_val"><strong>Хеш блока:</strong> {{block.hash}}</div>
-        <div class="block_val"><strong>Использовано газа:</strong> {{block.gasUsed}}</div>
-        <div class="block_val"><strong>Стоимость газа:</strong> {{block.baseFeePerGas }}</div>
-        <div class="block_val"><strong>Список транзакций:</strong></div>
+        <div class="block_val">Номер блока: {{ block.number }}</div>
+        <div class="block_val">Хеш блока: {{ block.hash }}</div>
+        <div class="block_val">Газа использовано: {{ block.gasUsed }}</div>
+        <div class="block_val">Стоимость: {{ block.baseFeePerGas }}</div>
+        <div class="block_val">Список транзакций:</div>
         <router-link
             v-for="hash in block.transactions"
             :to="`/transaction/${hash}`"
         >
             <div class="block_val">
-                {{hash}}
+                {{ hash }}
             </div>
         </router-link>
     </div>
-
 </template>
 
+
 <script>
-import {getBlock} from '../../utils/func'
+import { mapActions } from 'vuex';
 export default{
     name: "block-item",
+    data(){
+        return{
+            block: {}
+        }
+    },
     props:{
-        blockNumber:{
-            type: [Number , String],
+        blockNumberOrHash:{
+            type: String,
             required: true
         }
     },
-    data(){
-        return{
-            block :{}
-        }
+    methods:{
+        ...mapActions({
+            getBlock: "getBlock"
+        })
     },
-    mounted(){
-        this.getBlock()
+    async mounted(){
+        this.block = await this.getBlock(this.blockNumberOrHash)
     },
     watch:{
-        blockNumber(){
-            this.getBlock()
-        }
-    },
-    methods:{
-        async getBlock(){
-            this.block = await getBlock(this.blockNumber)
+        async blockNumberOrHash(){
+            this.block = await this.getBlock(this.blockNumberOrHash)
         }
     }
-
 }
+
 </script>
+
 
 <style>
 .block_info{

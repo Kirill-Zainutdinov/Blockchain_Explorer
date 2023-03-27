@@ -1,15 +1,15 @@
 <template>
     <block-item
-        :blockNumber="$route.params.blockNumber"
+        :blockNumberOrHash="$route.params.blockNumberOrHash"
     />
 </template>
 
 <script>
-
 export default{
-    name: "block"
+
 }
 </script>
+
 
 <style>
 

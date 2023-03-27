@@ -1,9 +1,10 @@
 <template>
-  <div class="app">
-    <navbar></navbar>
-    <router-view></router-view>
-  </div>
+    <div class="app">
+        <navbar></navbar>
+        <router-view></router-view>
+    </div>
 </template>
+
 
 <script>
 export default{
@@ -11,8 +12,9 @@ export default{
 }
 </script>
 
+
 <style>
 .app{
-  padding: 20px;
+    padding: 20px;
 }
 </style>

@@ -1,60 +1,57 @@
 <template>
-    <div class="tx">
-        <div class="tx_item">
-            <div class="tx_block"> <strong>Номер блока:</strong> </div>
-            <router-link :to="`/block/${tx.blockNumber}`"> {{tx.blockNumber}} </router-link>
+    <div class="block_info">
+        <div>
+            <div class="block_val">Номер блока: </div>
+            <router-link :to="`/block/${transaction.blockNumber}`">{{ transaction.blockNumber }}</router-link>
         </div>
-        <div class="tx_item"> <strong>Хеш транзакции:</strong> {{tx.hash}}</div>
-        <div class="tx_item"> <strong>Отправитель транзакции:</strong> {{tx.from}}</div>
-        <div class="tx_item"> <strong>Получатель транзакции:</strong> {{tx.to}}</div>
-        <div class="tx_item"> <strong>Пересланный эфир:</strong> {{tx.value }}</div>
+        <div class="block_val">Хеш транзакциии: {{ transaction.hash }}</div>
+        <div class="block_val">Отправитель транзакциии: {{ transaction.from }}</div>
+        <div class="block_val">Получатель транзакциии: {{ transaction.to }}</div>
+        <div class="block_val">Количество пересланного эфира: {{ transaction.value }}</div>
     </div>
-
 </template>
 
+
 <script>
-import {getTransaction} from '../../utils/func'
+import { mapActions } from 'vuex';
 export default{
     name: "tx-item",
+    data(){
+        return{
+            transaction: {}
+        }
+    },
     props:{
         txHash:{
             type: String,
             required: true
         }
     },
-    data(){
-        return{
-            tx :{}
-        }
+    methods:{
+        ...mapActions({
+            getTransaction: "getTransaction"
+        })
     },
-    mounted(){
-        this.getTransaction()
+    async mounted(){
+        this.transaction = await this.getTransaction(this.txHash)
     },
     watch:{
-        txHash(){
-            this.getTransaction()
-        }
-    },
-    methods:{
-        async getTransaction(){
-            this.tx = await getTransaction(this.txHash)
-            console.log(this.tx)
+        async txHash(){
+            this.transaction = await this.getTransaction(this.txHash)
         }
     }
-
 }
+
 </script>
 
+
 <style>
-.tx{
+.block_info{
     padding: 15px;
     border: 2px solid darkblue;
     margin-top: 15px;
 }
-.tx_item{
+.block_val{
     margin-top: 5px;
-}
-.tx_block{
-    display: inline-block;
 }
 </style>

@@ -1,19 +1,19 @@
-import {createRouter, createWebHistory} from "vue-router"
+import { createRouter, createWebHistory } from "vue-router"
 import Main from "@/pages/Main"
 import BlockPage from "@/pages/BlockPage"
 import TxPage from "@/pages/TxPage"
 
 const routes = [
-    {
-        path: '/',
+    { 
+        path: "/",
         component: Main
     },
     {
-        path: '/block/:blockNumber',
+        path: "/block/:blockNumberOrHash",
         component: BlockPage
     },
     {
-        path: '/transaction/:txHash',
+        path: "/transaction/:txHash",
         component: TxPage
     }
 ]
